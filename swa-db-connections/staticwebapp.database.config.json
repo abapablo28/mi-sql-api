@@ -1,1 +1,22 @@
-
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "mssql",
+    "connection-string": "@env('SQL_CONNECTION_STRING')"
+  },
+  "runtime": {
+    "rest": { "enabled": true, "path": "/rest" },
+    "graphql": { "enabled": true, "path": "/graphql" }
+  },
+  "entities": {
+    "Producto": {
+      "source": "dbo.MonedaValor",
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": ["read"]
+        }
+      ]
+    }
+  }
+}
